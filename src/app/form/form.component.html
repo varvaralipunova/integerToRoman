@@ -1,0 +1,17 @@
+<form [formGroup]="integerToRomanForm" (ngSubmit)="onSubmit()">
+  <div class="mb-3">
+    <label class="form-label">Please enter a number</label>
+    <input [ngClass]="{'red-border':showErrors()}" formControlName="integer" type="text" class="form-control num" value="" required>
+    <ng-container *ngIf="showErrors()">
+      <div class="red" *ngIf="integerToRomanForm.controls['integer'].errors?.['required']">
+        Value is required
+      </div>
+      <div class="red" *ngIf="integerToRomanForm.controls['integer'].errors?.['pattern']">
+        Please enter a number
+       </div>
+    </ng-container>
+    <label class="form-label pt-3">Roman numeral</label>
+    <input type="text" class="form-control" formControlName="roman">
+  </div>
+  <button [disabled]="integerToRomanForm.invalid" type="submit" class="btn btn-light">Convert</button>
+</form>
