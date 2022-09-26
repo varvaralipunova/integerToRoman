@@ -4,3 +4,9 @@
   background-size: cover;
   background-image: url("/assets/images/annie-spratt-OTy0mkqc2Yk-unsplash.jpg");
 }
+
+@media (max-width: 500px) {
+  .main{
+    background-position: center;
+  }
+}
